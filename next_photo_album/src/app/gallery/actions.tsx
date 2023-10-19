@@ -1,11 +1,11 @@
 "use server";
 import cloudinary from "cloudinary";
-import { revalidatePath } from "next/cache";
+// import { revalidatePath } from "next/cache";
 
 export async function setAsFavortieAction(
   publicId: string,
-  isFavorite: boolean,
-  path: string
+  isFavorite: boolean
+  // path: string
 ) {
   console.log(`Waqas 2 : ${publicId}`);
   if (isFavorite) {
@@ -13,8 +13,8 @@ export async function setAsFavortieAction(
   } else {
     await cloudinary.v2.uploader.remove_tag("favorite", [publicId]);
   }
-  await new Promise((resolve) => {
-    setTimeout(resolve, 1500);
-  });
-  revalidatePath(path);
+  // await new Promise((resolve) => {
+  //   setTimeout(resolve, 1500);
+  // });
+  // revalidatePath(path);
 }

@@ -32,7 +32,7 @@ export default async function GalleryPage() {
                 imagedata={result}
                 width="500"
                 height="300"
-                path="/gallery"
+                // path="/gallery"
                 alt="Description of my image"
               />
             </div>
