@@ -1,21 +1,26 @@
-import { CloudinaryImage } from "@/components/ui/cloudinary_image";
-import UploadButton from "@/components/ui/upload_button";
 import cloudinary from "cloudinary";
-import React from "react";
-export type SearchResults = {
+import { SearchForm } from "./search-form";
+import UploadButton from "@/components/ui/upload_button";
+import GalleryGrid from "./gallery_grid";
+
+export type SearchResult = {
   public_id: string;
   tags: string[];
 };
 
-export default async function GalleryPage() {
+export default async function GalleryPage({
+  searchParams: { search },
+}: {
+  searchParams: {
+    search: string;
+  };
+}) {
   const results = (await cloudinary.v2.search
-    .expression("resource_type:image")
+    .expression(`resource_type:image${search ? ` AND tags=${search}` : ""}`)
     .sort_by("created_at", "desc")
-    .max_results(20)
     .with_field("tags")
-    .execute()) as { resources: SearchResults[] };
-  // .then((result: any) => console.log(result));
-  console.log(JSON.stringify(results));
+    .max_results(30)
+    .execute()) as { resources: SearchResult[] };
 
   return (
     <section>
@@ -24,23 +29,11 @@ export default async function GalleryPage() {
           <h1 className="text-4xl font-bold">Gallery</h1>
           <UploadButton />
         </div>
-        <div className="grid grid-cols-4 gap-4">
-          {results.resources.map((result) => (
-            <div>
-              <CloudinaryImage
-                key={result.public_id}
-                imagedata={result}
-                width="500"
-                height="300"
-                // path="/gallery"
-                alt="Description of my image"
-              />
-            </div>
-          ))}
-        </div>
+
+        <SearchForm initialSearch={search} />
+
+        <GalleryGrid images={results.resources} />
       </div>
     </section>
   );
 }
-
-// export default GalleryPage;

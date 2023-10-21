@@ -2,12 +2,12 @@
 import { CloudinaryImage } from "@/components/ui/cloudinary_image";
 import cloudinary from "cloudinary";
 import React, { useEffect, useState } from "react";
-import { SearchResults } from "../gallery/page";
+import { SearchResult } from "../gallery/page";
 
 export default function FavoriteList({
   initialResources,
 }: {
-  initialResources: SearchResults[];
+  initialResources: SearchResult[];
 }) {
   const [resources, setResources] = useState(initialResources);
 
@@ -21,7 +21,7 @@ export default function FavoriteList({
         <div>
           <CloudinaryImage
             key={result.public_id}
-            imagedata={result}
+            imageData={result}
             width="500"
             height="300"
             // path="/favorite"

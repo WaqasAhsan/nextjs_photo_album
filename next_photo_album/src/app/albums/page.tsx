@@ -1,19 +1,27 @@
-import Link from "next/link";
-export default async function albums() {
-  const response = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const data = await response.json();
+import clouinary from "cloudinary";
+import { AlbumCard } from "./album-card";
+
+export type Folder = {
+  name: string;
+  path: string;
+};
+
+export default async function AlbumPage() {
+  const { folders } = (await clouinary.v2.api.root_folders()) as {
+    folders: Folder[];
+  };
   return (
-    <div>
-      <div>
-        <h3>Album List</h3>
-        <ol>
-          {data.map((item: any, i: number) => (
-            <li key={item.id}>
-              <Link href={`/albums/${item.id}`}>{item.title}</Link>
-            </li>
+    <section>
+      <div className="flex flex-col gap-8">
+        <div className="flex justify-between">
+          <h1 className="text-4xl font-bold">Albums</h1>
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          {folders.map((folder) => (
+            <AlbumCard key={folder.path} folder={folder} />
           ))}
-        </ol>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
