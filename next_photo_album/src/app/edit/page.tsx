@@ -35,7 +35,7 @@ export default function EditPage({
           <Button variant="ghost" onClick={() => setTransformation(undefined)}>
             Clear All
           </Button>
-          <div>
+          <div className="flex flex-col gap-y-4">
             <Button
               onClick={() => {
                 setTransformation("generative-fill");
@@ -44,7 +44,7 @@ export default function EditPage({
             >
               Apply Generative Fill
             </Button>
-            <Label>Prompt</Label>
+            <Label> With Prompt : </Label>
             <Input
               value={pendingPrompt}
               onChange={(e) => setPendingPrompt(e.currentTarget.value)}

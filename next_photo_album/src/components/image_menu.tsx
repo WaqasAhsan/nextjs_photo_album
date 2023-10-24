@@ -7,12 +7,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "./icons/menu";
 import { AddToAlbumDialog } from "./add-to-album-dialog";
-import { SearchResults } from "@/app/gallery/page";
+import { SearchResult } from "@/app/gallery/page";
 import { useState } from "react";
 import Link from "next/link";
 import { Pencil } from "lucide-react";
 
-export function ImageMenu({ image }: { image: SearchResults }) {
+export function ImageMenu({ image }: { image: SearchResult }) {
   const [open, setOpen] = useState(false);
 
   return (

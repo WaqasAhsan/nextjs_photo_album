@@ -1,7 +1,7 @@
 import { CloudinaryImage } from "@/components/ui/cloudinary_image";
 import cloudinary from "cloudinary";
 import React from "react";
-import { SearchResults } from "../gallery/page";
+import { SearchResult } from "../gallery/page";
 import { ForceRefresh } from "@/components/force-refresh";
 import FavoriteList from "./favorite_list";
 
@@ -11,7 +11,7 @@ export default async function FavoritePage() {
     .sort_by("created_at", "desc")
     .max_results(30)
     .with_field("tags")
-    .execute()) as { resources: SearchResults[] };
+    .execute()) as { resources: SearchResult[] };
   // .then((result: any) => console.log(result));
   console.log(JSON.stringify(results));
 
