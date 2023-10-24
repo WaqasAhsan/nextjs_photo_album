@@ -3,7 +3,7 @@ import cloudinary from "cloudinary";
 import React from "react";
 import { SearchResult } from "../gallery/page";
 import { ForceRefresh } from "@/components/force-refresh";
-import FavoriteList from "./favorite_list";
+import FavoriteList from "../../components/favorite_list";
 
 export default async function FavoritePage() {
   const results = (await cloudinary.v2.search

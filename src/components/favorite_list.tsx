@@ -1,7 +1,7 @@
 "use client";
 import { CloudinaryImage } from "@/components/ui/cloudinary_image";
 import React, { useEffect, useState } from "react";
-import { SearchResult } from "../gallery/page";
+import { SearchResult } from "../app/gallery/page";
 
 export default function FavoriteList({
   initialResources,

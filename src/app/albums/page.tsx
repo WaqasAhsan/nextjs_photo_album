@@ -1,5 +1,5 @@
 import clouinary from "cloudinary";
-import { AlbumCard } from "./album-card";
+import { AlbumCard } from "../../components/album-card";
 
 export type Folder = {
   name: string;
