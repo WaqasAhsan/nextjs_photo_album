@@ -1,4 +1,6 @@
-import clouinary from "cloudinary";
+// import clouinary from "cloudinary";
+import cloudinary from "@/components/cloudinary";
+
 import { AlbumCard } from "../../components/album-card";
 
 export type Folder = {
@@ -7,7 +9,7 @@ export type Folder = {
 };
 
 export default async function AlbumPage() {
-  const { folders } = (await clouinary.v2.api.root_folders()) as {
+  const { folders } = (await cloudinary.api.root_folders()) as {
     folders: Folder[];
   };
   return (

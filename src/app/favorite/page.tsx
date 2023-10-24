@@ -1,12 +1,14 @@
 import { CloudinaryImage } from "@/components/ui/cloudinary_image";
-import cloudinary from "cloudinary";
+// import cloudinary from "cloudinary";
+import cloudinary from "@/components/cloudinary";
+
 import React from "react";
 import { SearchResult } from "../gallery/page";
 import { ForceRefresh } from "@/components/force-refresh";
 import FavoriteList from "../../components/favorite_list";
 
 export default async function FavoritePage() {
-  const results = (await cloudinary.v2.search
+  const results = (await cloudinary.search
     .expression("resource_type:image AND tags=favorite")
     .sort_by("created_at", "desc")
     .max_results(30)

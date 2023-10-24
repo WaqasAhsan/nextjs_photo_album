@@ -1,4 +1,6 @@
-import cloudinary from "cloudinary";
+// import cloudinary from "cloudinary";
+import cloudinary from "@/components/cloudinary";
+
 import { SearchForm } from "../../components/search-form";
 import UploadButton from "@/components/ui/upload_button";
 import GalleryGrid from "../../components/gallery_grid";
@@ -15,7 +17,7 @@ export default async function GalleryPage({
     search: string;
   };
 }) {
-  const results = (await cloudinary.v2.search
+  const results = (await cloudinary.search
     .expression(`resource_type:image${search ? ` AND tags=${search}` : ""}`)
     .sort_by("created_at", "desc")
     .with_field("tags")
