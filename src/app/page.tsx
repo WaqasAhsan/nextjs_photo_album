@@ -9,7 +9,7 @@ export type UploadResult = {
   };
   event: "success";
 };
-export default function Home() {
+const Home = () => {
   const [imageId, setImageID] = useState("cld-sample-4");
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -31,4 +31,5 @@ export default function Home() {
       )}
     </main>
   );
-}
+};
+export default Home;

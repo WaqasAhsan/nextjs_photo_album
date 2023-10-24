@@ -6,13 +6,13 @@ import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
 import React, { use, useState } from "react";
 
-export default function EditPage({
+const EditPage = ({
   searchParams: { publicId },
 }: {
   searchParams: {
     publicId: string;
   };
-}) {
+}) => {
   const [transformation, setTransformation] = useState<
     | undefined
     | "generative-fill"
@@ -116,4 +116,5 @@ export default function EditPage({
       </div>
     </section>
   );
-}
+};
+export default EditPage;

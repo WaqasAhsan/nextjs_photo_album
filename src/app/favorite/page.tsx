@@ -7,7 +7,7 @@ import { SearchResult } from "../gallery/page";
 import { ForceRefresh } from "@/components/force-refresh";
 import FavoriteList from "../../components/favorite_list";
 
-export default async function FavoritePage() {
+const FavoritePage = async () => {
   const results = (await cloudinary.search
     .expression("resource_type:image AND tags=favorite")
     .sort_by("created_at", "desc")
@@ -28,6 +28,6 @@ export default async function FavoritePage() {
       </div>
     </section>
   );
-}
+};
 
-// export default FavoritePage;
+export default FavoritePage;

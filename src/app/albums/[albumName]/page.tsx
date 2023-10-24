@@ -5,13 +5,13 @@ import cloudinary from "@/components/cloudinary";
 
 import AlbumGrid from "../../../components/album-grid";
 
-export default async function GalleryPage({
+const GalleryPage = async ({
   params: { albumName },
 }: {
   params: {
     albumName: string;
   };
-}) {
+}) => {
   const results = (await cloudinary.search
     .expression(`resource_type:image AND folder=${albumName}`)
     .sort_by("created_at", "desc")
@@ -32,4 +32,5 @@ export default async function GalleryPage({
       </div>
     </section>
   );
-}
+};
+export default GalleryPage;
