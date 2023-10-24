@@ -50,13 +50,13 @@ export default function EditPage({
               onChange={(e) => setPendingPrompt(e.currentTarget.value)}
             />
           </div>
-          <Button onClick={() => setTransformation("blur")}>Apply Blur</Button>
-          <Button onClick={() => setTransformation("grayscale")}>
+          {/* <Button onClick={() => setTransformation("blur")}>Apply Blur</Button> */}
+          {/* <Button onClick={() => setTransformation("grayscale")}>
             Convert to Gray
           </Button>
           <Button onClick={() => setTransformation("pixelate")}>
             Pixelate
-          </Button>
+          </Button> */}
           <Button onClick={() => setTransformation("bg-remove")}>
             Remove Background
           </Button>
@@ -75,13 +75,14 @@ export default function EditPage({
               }}
             />
           )}
-          {transformation === "blur" && (
+          {/* {transformation === "blur" && (
             <CldImage
               src={publicId}
               width="1200"
               height="1400"
               alt="Some Image"
-              blur="800"
+              blur={800}
+              // effects={["blur:800"]} // Provide an array with the desired effect(s)
             />
           )}
           {transformation === "grayscale" && (
@@ -101,7 +102,7 @@ export default function EditPage({
               alt="Some Image"
               pixelate
             />
-          )}
+          )} */}
           {transformation === "bg-remove" && (
             <CldImage
               src={publicId}

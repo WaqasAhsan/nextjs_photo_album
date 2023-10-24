@@ -1,6 +1,5 @@
 "use client";
 import { CloudinaryImage } from "@/components/ui/cloudinary_image";
-import cloudinary from "cloudinary";
 import React, { useEffect, useState } from "react";
 import { SearchResult } from "../gallery/page";
 
@@ -18,9 +17,9 @@ export default function FavoriteList({
   return (
     <div className="grid grid-cols-4 gap-4">
       {resources.map((result) => (
-        <div>
+        <div key={result.public_id}>
           <CloudinaryImage
-            key={result.public_id}
+            // key={result.public_id}
             imageData={result}
             width="500"
             height="300"
@@ -40,5 +39,3 @@ export default function FavoriteList({
     </div>
   );
 }
-
-// export default FavoriteList;
