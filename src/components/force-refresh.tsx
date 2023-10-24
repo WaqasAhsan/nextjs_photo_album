@@ -6,6 +6,6 @@ export const ForceRefresh = () => {
   const router = useRouter();
   useEffect(() => {
     router.refresh();
-  }, []);
+  }, [router]);
   return <></>;
 };
