@@ -1,7 +1,7 @@
 "use client";
 import { CldImage, CldImageProps } from "next-cloudinary";
 import Heart from "../icons/heart";
-import { setAsFavortieAction } from "@/app/gallery/actions";
+import { setAsFavortieAction } from "@/components/actions/actions_gallery";
 import { ComponentProps, useState, useTransition } from "react";
 import { SearchResult } from "@/app/gallery/page";
 import FullHeart from "../icons/full_heart";
