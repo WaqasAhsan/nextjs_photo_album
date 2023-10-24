@@ -5,7 +5,9 @@ import { Inter } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import Heart from "@/components/icons/heart";
 import Link from "next/link";
-import cloudinary from "cloudinary";
+// import cloudinary from "cloudinary";
+import cloudinary from "@/components/cloudinary";
+
 import { Folder } from "./albums/page";
 import Image from "next/image";
 
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
   description: "Photo Album",
 };
 async function SideMenu() {
-  const { folders } = (await cloudinary.v2.api.root_folders()) as {
+  const { folders } = (await cloudinary.api.root_folders()) as {
     folders: Folder[];
   };
 
